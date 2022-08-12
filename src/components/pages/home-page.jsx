@@ -15,7 +15,7 @@ const HomePage = () => {
         }
     ]
     return (
-        <BookList books={books} />
+        <BookList />
     )
 }
 
