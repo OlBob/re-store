@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './book-list';
+import './book-list.css';
 import BookListItem from "../book-list-item";
 import { withBookstoreService } from "../hoc";
 import { booksLoaded } from "../../actions"
@@ -22,7 +22,7 @@ class BookList extends Component {
         const { books } = this.props;
 
         return (
-            <ul>
+            <ul className="book-list">
                 {
                     books.map((book) => {
                         return <li key={book.id}><BookListItem book={book} /></li>
