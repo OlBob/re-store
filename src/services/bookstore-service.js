@@ -2,7 +2,7 @@
 export default class BookstoreService {
 
   getBooks() {
-    return [
+    const data = [
       {
         id: 1,
         title: 'Production-Ready Microservices',
@@ -18,6 +18,12 @@ export default class BookstoreService {
         coverImage: 'https://images-na.ssl-images-amazon.com/images/I/414CRjLjwgL._SX403_BO1,204,203,200_.jpg'
       }
     ];
-  }
 
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() > .75) return reject(new Error('Somthing happened'));
+        return resolve(data)
+      }, 800)
+    })
+  }
 }
