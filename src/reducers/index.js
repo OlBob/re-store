@@ -19,8 +19,6 @@ const initialState = {
     orderTotal: 240
 }
 
-<<<<<<< HEAD
-=======
 const updateCartItems = (cartItems, item, idx) => {
     if (idx === -1) {
         return [
@@ -51,7 +49,6 @@ const updateCartItem = (book, item = {}) => {
     }
 }
 
->>>>>>> 49c09bf... complited updateCartItem
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_BOOKS_REQUEST':
@@ -78,21 +75,6 @@ const reducer = (state = initialState, action) => {
         case 'BOOK_ADDED_TO_CART':
             const bookId = action.payload;
             const book = state.books.find((book) => book.id === bookId);
-<<<<<<< HEAD
-            const newItem = {
-                id: book.id,
-                name: book.title,
-                count: 1,
-                total: book.price
-            }
-
-            return {
-                ...state,
-                cartItems: [
-                    ...state.cartItems,
-                    newItem
-                ]
-=======
             const itemIndex = state.cartItems.findIndex(({ id }) => id === bookId);
             const item = state.cartItems[itemIndex];
 
@@ -101,7 +83,6 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cartItems: updateCartItems(state.cartItems, newItem, itemIndex)
->>>>>>> 49c09bf... complited updateCartItem
             }
         default:
             return state
